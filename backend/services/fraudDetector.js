@@ -28,11 +28,11 @@ export const detectFraud = (graph, transactions) => {
   console.log(`     Found ${cycles.length} cycles in ${cycleTime}s`);
   
   cycles.forEach(cycle => {
-    const ringId = `RING-${String(ringIdCounter++).padStart(3, '0')}`;
+    const ringId = `RING_${String(ringIdCounter++).padStart(3, '0')}`;
     fraudRings.push({
       ring_id: ringId,
       member_accounts: cycle,
-      pattern_type: 'cycle',
+      pattern_type: `cycle_length_${cycle.length}`,
       risk_score: 90
     });
     
@@ -41,7 +41,7 @@ export const detectFraud = (graph, transactions) => {
       if (!accountPatterns.has(accountId)) {
         accountPatterns.set(accountId, { patterns: [], rings: [], scores: [] });
       }
-      accountPatterns.get(accountId).patterns.push('cycle');
+      accountPatterns.get(accountId).patterns.push(`cycle_length_${cycle.length}`);
       accountPatterns.get(accountId).rings.push(ringId);
       accountPatterns.get(accountId).scores.push(40);
     });
@@ -55,7 +55,7 @@ export const detectFraud = (graph, transactions) => {
   console.log(`     Found ${smurfRings.length} smurfing rings in ${smurfTime}s`);
   
   smurfRings.forEach(smurf => {
-    const ringId = `RING-${String(ringIdCounter++).padStart(3, '0')}`;
+    const ringId = `RING_${String(ringIdCounter++).padStart(3, '0')}`;
     fraudRings.push({
       ring_id: ringId,
       member_accounts: smurf.members,
@@ -67,7 +67,7 @@ export const detectFraud = (graph, transactions) => {
     if (!accountPatterns.has(smurf.aggregator)) {
       accountPatterns.set(smurf.aggregator, { patterns: [], rings: [], scores: [] });
     }
-    accountPatterns.get(smurf.aggregator).patterns.push('smurf_aggregator');
+    accountPatterns.get(smurf.aggregator).patterns.push(smurf.type);
     accountPatterns.get(smurf.aggregator).rings.push(ringId);
     accountPatterns.get(smurf.aggregator).scores.push(35);
     
@@ -76,7 +76,7 @@ export const detectFraud = (graph, transactions) => {
       if (!accountPatterns.has(participantId)) {
         accountPatterns.set(participantId, { patterns: [], rings: [], scores: [] });
       }
-      accountPatterns.get(participantId).patterns.push('smurf_participant');
+      accountPatterns.get(participantId).patterns.push(smurf.type);
       accountPatterns.get(participantId).rings.push(ringId);
       accountPatterns.get(participantId).scores.push(20);
     });
@@ -90,7 +90,7 @@ export const detectFraud = (graph, transactions) => {
   console.log(`     Found ${shellChains.length} shell chains in ${shellTime}s`);
   
   shellChains.forEach(chain => {
-    const ringId = `RING-${String(ringIdCounter++).padStart(3, '0')}`;
+    const ringId = `RING_${String(ringIdCounter++).padStart(3, '0')}`;
     fraudRings.push({
       ring_id: ringId,
       member_accounts: chain.members,
@@ -102,7 +102,7 @@ export const detectFraud = (graph, transactions) => {
       if (!accountPatterns.has(accountId)) {
         accountPatterns.set(accountId, { patterns: [], rings: [], scores: [] });
       }
-      accountPatterns.get(accountId).patterns.push('shell_intermediate');
+      accountPatterns.get(accountId).patterns.push('shell_network');
       accountPatterns.get(accountId).rings.push(ringId);
       accountPatterns.get(accountId).scores.push(30);
     });
@@ -116,7 +116,7 @@ export const detectFraud = (graph, transactions) => {
     const node = graph.nodes.get(accountId);
     
     // False positive control: don't flag legitimate merchants
-    if (isLegitimateAccount(node, data.patterns.includes('cycle'))) {
+    if (isLegitimateAccount(node, data.patterns.some(p => p.startsWith('cycle_length')))) {
       return;
     }
     
@@ -125,8 +125,8 @@ export const detectFraud = (graph, transactions) => {
     suspiciousAccounts.push({
       account_id: accountId,
       suspicion_score: suspicionScore,
-      detected_patterns: [...new Set(data.patterns)],
-      ring_id: data.rings[0] || null
+      detected_patterns: [...new Set(data.patterns)].sort(),
+      ring_id: data.rings[0]
     });
   });
 
