@@ -12,7 +12,7 @@
 
 **Transforming raw transaction data into a structured financial investigation system — detecting money mule networks through graph theory, suspicion scoring, and interactive visualization.**
 
-[🌐 Live Demo](https://rift2026-fraud-netra-dun.vercel.app/) 
+ 🌐 Live Demo >> CLICK HERE ! ->-> https://rift2026-fraud-netra-dun.vercel.app/ <-<-
 
 </div>
 
@@ -23,9 +23,6 @@
 
 Money muling is a serious financial crime where criminals move illegal money through multiple accounts to obscure its origin. These accounts form **hidden networks** that are nearly impossible to detect with traditional database queries.
 
-<table>
-<tr>
-<td width="50%">
 
 ### 🚨 **The Challenge**
 
@@ -35,8 +32,7 @@ Money muling is a serious financial crime where criminals move illegal money thr
 - ❌ **False Positives** — legitimate merchants get flagged incorrectly
 - 🕒 **Speed** — forensic results must be actionable within seconds
 
-</td>
-<td width="50%">
+
 
 ### ✅ **Fraud Netra's Solution**
 
@@ -46,17 +42,10 @@ Money muling is a serious financial crime where criminals move illegal money thr
 - 🎯 **False Positive Control** — high-activity accounts auto-whitelisted
 - ⚡ **<30s Processing** — upload to visual results in under 30 seconds
 
-</td>
-</tr>
-</table>
+
 
 ---
 
-## 🚀 Key Features
-
-<table>
-<tr>
-<td width="50%">
 
 ### 📥 **CSV Upload & Validation**
 
@@ -72,8 +61,6 @@ Money muling is a serious financial crime where criminals move illegal money thr
 - Fraud rings highlighted in distinct colors
 - Hover tooltips: account ID, score, patterns
 
-</td>
-<td width="50%">
 
 ### ⚖️ **Suspicion Scoring Engine**
 
@@ -89,9 +76,7 @@ Money muling is a serious financial crime where criminals move illegal money thr
 - Fraud ring membership details
 - Processing summary statistics
 
-</td>
-</tr>
-</table>
+
 
 ---
 
@@ -99,7 +84,7 @@ Money muling is a serious financial crime where criminals move illegal money thr
 
 Fraud Netra detects **three core money muling patterns** using graph algorithms:
 
----
+
 
 ### 1️⃣ Circular Fund Routing (Cycles)
 
@@ -116,7 +101,7 @@ A → B → C → A
 
 **Algorithm:** Depth-limited DFS with full path tracking
 
----
+
 
 ### 2️⃣ Smurfing Patterns (Fan-in / Fan-out)
 
@@ -134,7 +119,7 @@ Fan-out: Distributor → [Y1, Y2, ... Y10]
 
 **Algorithm:** Sorted timestamp grouping + sliding window unique count
 
----
+
 
 ### 3️⃣ Layered Shell Networks
 
@@ -151,7 +136,6 @@ Source → Shell₁ → Shell₂ → Destination
 
 **Algorithm:** BFS with intermediate node activity filtering
 
----
 
 ## 🚫 False Positive Control
 
@@ -431,25 +415,25 @@ Fraud Netra satisfies all evaluation requirements:
 <td align="center" width="25%">
 
 **Harsh Kulkarni**
-System Design & GitHub
+ : System Design & GitHub
 
 </td>
 <td align="center" width="25%">
 
 **Abhishek Kalimath**
-Full Stack Development
+ : Full Stack Development
 
 </td>
 <td align="center" width="25%">
 
 **Yash Lawande**
-AI Integration
+: AI Integration
 
 </td>
 <td align="center" width="25%">
 
 **Sarthak Manke**
-LLM & Prompt Engineering
+ : LLM & Prompt Engineering
 
 </td>
 </tr>
