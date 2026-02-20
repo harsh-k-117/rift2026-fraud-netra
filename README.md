@@ -12,36 +12,12 @@
 
 **Transforming raw transaction data into a structured financial investigation system — detecting money mule networks through graph theory, suspicion scoring, and interactive visualization.**
 
-[🌐 Live Demo](https://rift2026-fraud-netra-dun.vercel.app/) • [⚙️ Backend API](https://fraud-netra-backend.vercel.app/) • [🏆 RIFT 2026 Hackathon](#-rift-2026-hackathon)
+[🌐 Live Demo](https://rift2026-fraud-netra-dun.vercel.app/) 
 
 </div>
 
 ---
 
-## 🔗 Project Links
-
-<table>
-<tr>
-<td align="center" width="50%">
-
-### 🌐 **Frontend**
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://rift2026-fraud-netra-dun.vercel.app/)
-
-[View Live Site →](https://rift2026-fraud-netra-dun.vercel.app/)
-
-</td>
-<td align="center" width="50%">
-
-### ⚙️ **Backend API**
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://fraud-netra-backend.vercel.app/)
-
-[API Server →](https://fraud-netra-backend.vercel.app/)
-
-</td>
-</tr>
-</table>
-
----
 
 ## 🎯 Problem Statement
 
