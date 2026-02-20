@@ -1,4 +1,4 @@
-# AegisGraph Backend
+# Fraud Netra Backend
 
 Backend API for AegisGraph Financial Crime Detection Engine.
 
