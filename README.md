@@ -470,5 +470,6 @@ npm run lint       # Run ESLint
 ---
 
 *Last Updated: February 2026*
+*Live project*
 
 </div>
